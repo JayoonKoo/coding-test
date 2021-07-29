@@ -1,22 +1,24 @@
 // const fs = require("fs");
 // const input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-let input = `72`.split('\n');
+let input = `6`.split('\n');
 
 const sol = (input) => {
 	let N = +input[0];
-	let ans = "";
+	let answer = [];
 
-	if (N === 1) return 0;
+	if (N === 1) return;
 
-	for (let i = 2; i<=N**(1/2); i++) {
-		while(N % i === 0) {
-			ans += `${i}\n`;
+	let i =2;
+	while(N > 1) {
+		if (N % i === 0) {
+			answer.push(i);
 			N /= i;
+		} else {
+			i++;
 		}
 	}
 
-	if (N !== 1) ans += `${N}`;
-	return ans;
+	return answer.join('\n');
 }
 
 console.log(sol(input));
