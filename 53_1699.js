@@ -1,6 +1,6 @@
 // const fs = require("fs");
 // let input = fs.readFileSync("/dev/stdin").toString().trim().split("\n");
-const input = `7`.split('\n');
+const input = `11`.split('\n');
 
 let N = Number(input[0]);
 
