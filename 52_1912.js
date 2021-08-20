@@ -9,8 +9,8 @@ const arr = input[1].split(' ').map(Number);
 const sol = () => {
 	const d = [arr[0]];
 	for (let i=1; i <N; i++) {
-		const [current, preD, preArr ] = [arr[i], d[i-1], arr[i-1]];
-		const candidate = [preD + current, current, current + preArr];
+		const [current, preD] = [arr[i], d[i-1]];
+		const candidate = [preD + current, current];
 		d[i] = Math.max(...candidate);
 	}
 
