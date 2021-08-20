@@ -5,14 +5,16 @@ const input = `11`.split('\n');
 let N = Number(input[0]);
 
 function sol() {
-	let root = Math.floor(N**(1/2));
-	let answer = 0;
-	while (root != 1) {
-		answer += 1;
-		N -= root ** 2;
-		root = Math.floor(N**(1/2));
+	const d = new Array(N+1).fill(0);
+
+	for (let i=0; i<=N; i++) {
+		d[i] = i;
+		for (let j=1; j*j <= i; j++) {
+			d[i] = Math.min(d[i], d[i - j*j] +1);
+		}
 	}
-	return answer + N;
+
+	return d[N];
 }
 
 
